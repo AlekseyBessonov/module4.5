@@ -14,6 +14,7 @@ urlpatterns = [
     path('signup/',
          BaseRegisterView.as_view(template_name='sign/signup.html'),
          name='signup'),
-    path('profile/<int:pk>', UserUpdate.as_view(template_name='sign/edit_users.html'))
+    path('profile/<int:pk>', UserUpdate.as_view(template_name='sign/edit_users.html'),
+         name='updateuser')
 
 ]

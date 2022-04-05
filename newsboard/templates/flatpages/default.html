@@ -35,11 +35,22 @@
 
                                 </a>
                             </li>
+
+
+
+                            {% if user.is_authenticated %}
+                            <li class="nav-item active" >
+                                <a class="nav-link" href="{% url 'updateuser' user.id %}"> Личный кабинет {{ user }} </a>
+                            </li>
+
+                            {% else %}
                             <li class="nav-item active" >
                                 <a class="nav-link" href="/accounts/login" >Вход|Регистрация
 
                                 </a>
                             </li>
+                            {% endif %}
+
 
                          </ul>
                    </div>

@@ -37,12 +37,12 @@ class NewsList(ListView):
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)  # создаём новую форму, забиваем в неё данные из POST-запроса
 
-        if form.is_valid():  # если пользователь ввёл всё правильно и нигде не ошибся, то сохраняем новый товар
+        if form.is_valid():  # если пользователь ввёл всё правильно и нигде не ошибся, то сохраняем
             form.save()
 
         return super().get(request, *args, **kwargs)
 
-    # дженерик для получения деталей о товаре
+
 
 
 
@@ -96,10 +96,10 @@ class AuthorDetail(DetailView):
      #   id = self.kwargs.get('pk')
       #  return User.objects.get(pk=id)
 
-class IndexView(LoginRequiredMixin, TemplateView):
-    template_name = 'profile.html'
+#class IndexView(LoginRequiredMixin, TemplateView):
+  #  template_name = 'profile.html'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['is_not_premium'] = not self.request.user.groups.filter(name='authors').exists()
-        return context
+  #  def get_context_data(self, **kwargs):
+   #     context = super().get_context_data(**kwargs)
+   #     context['is_not_premium'] = not self.request.user.groups.filter(name='authors').exists()
+   #     return context
