@@ -4,7 +4,7 @@ from django.views.generic import ListView, UpdateView, CreateView, DetailView, D
 from .models import Post, Category, User, Author
 from .filters import NewsFilter
 from datetime import datetime
-from .forms import NewsForm, UserForm
+from .forms import NewsForm
 
 
 
@@ -29,7 +29,6 @@ class NewsList(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['filter'] = NewsFilter(self.request.GET, queryset=self.get_queryset())
-
         context['categories'] = Category.objects.all()
         context['form'] = NewsForm()
         return context

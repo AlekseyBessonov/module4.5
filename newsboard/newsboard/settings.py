@@ -158,7 +158,7 @@ ACCOUNT_EMAIL_VERIFICATION = 'none'
 ACCOUNT_FORMS = {'signup': 'sign.models.BasicSignupForm'}
 
 LOGIN_URL = '/accounts/login/'
-LOGIN_REDIRECT_URL = '/accounts/logout/'
+LOGIN_REDIRECT_URL = '/'
 
 ###MAIL####
 

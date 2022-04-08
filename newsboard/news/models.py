@@ -18,8 +18,17 @@ class Author(models.Model):
         self.ratingAuthor = cRat + pRat
         self.save()
 
+    def __str__(self):
+        return str(self.authorUser)
+
+
 class Category(models.Model):
     name = models.CharField(max_length=32, unique=True)
+    subscribers = models.ManyToManyField(User)
+
+    def __str__(self):
+        return f'{self.name}'
+
 
 class Post(models.Model):
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
@@ -30,7 +39,7 @@ class Post(models.Model):
     CATEGORY_CHOICE = (
         (NEWS, 'Новости'),
         (ARTICLE, 'Статья'),
-            )
+    )
 
     categoryType = models.CharField(max_length=2, choices=CATEGORY_CHOICE, default=ARTICLE)
     createTime = models.DateTimeField(auto_now_add=True)
@@ -42,8 +51,8 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
-  #  def __str__(self):
-  #      return self.author.authorUser
+    #  def __str__(self):
+    #      return self.author.authorUser
 
     def like(self):
         self.rating += 1

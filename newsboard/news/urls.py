@@ -11,5 +11,5 @@ urlpatterns = [
         path('delete/<int:pk>/', PostDeleteView.as_view(), name='post_delete'), #удаление
         path('update/<int:pk>/', PostUpdateView.as_view(), name='post_update'),  # Ссылка на обновление
         path('author/', AuthorDetail.as_view(), name='author'),
-#        path('author/<int:pk>/edit/', UserUpdate.as_view(), name='edit_user'),
+#
     ]

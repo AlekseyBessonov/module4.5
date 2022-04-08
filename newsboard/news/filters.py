@@ -3,22 +3,24 @@ from django_filters import FilterSet, DateFilter  # импортируем filte
 from .models import Post
 
 
-#author =
+# author =
 # создаём фильтр
-#class NewsFilter(FilterSet):
-    # Здесь в мета классе надо предоставить модель и указать поля, по которым будет фильтроваться (т. е. подбираться) информация о товарах
- #   class Meta:
-  #      model = Post
-   #     fields = ( 'author', 'createTime', 'categoryType')
+# class NewsFilter(FilterSet):
+# Здесь в мета классе надо предоставить модель и указать поля, по которым будет фильтроваться (т. е. подбираться) информация о товарах
+#   class Meta:
+#      model = Post
+#     fields = ( 'author', 'createTime', 'categoryType')
 class NewsFilter(FilterSet):
-    createTime = DateFilter(lookup_expr='gte', widget=forms.DateInput( attrs={'type': 'date'}))
 
 
+    createTime = DateFilter(lookup_expr='gte', widget=forms.DateInput(attrs={'type': 'date'}))
 
-class Meta:
-    model = Post
-    fields = {
-        'categoryType': [''],
-        'author': [''],
-        'createTime': [],
+
+    class Meta:
+        model = Post
+        fields = {
+        'title':['icontains'],
+        'categoryType': ['exact'],
+        'author': ['exact'],
+
     }
